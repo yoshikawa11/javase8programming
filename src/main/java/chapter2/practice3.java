@@ -32,7 +32,7 @@ public class practice3 {
         startTime = System.nanoTime();
         Optional<String> longestWordParallelStream = Arrays.stream(words)
                 .parallel()
-                .max(Comparator.comparingInt(String::length));
+                .max((s1, s2) -> Integer.compare(s1.length(), s2.length())); // ラムダ式で表現する
         endTime = System.nanoTime();
         longestWordParallelStream.ifPresent(word ->
                 System.out.println("Longest word using ParallelStream: " + word)
