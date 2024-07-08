@@ -11,7 +11,7 @@ public class practice7 {
         System.out.println(isInfinite(infiniteStream)); // true
     }
 
-    public static boolean isInfinite(Stream<?> stream) {
+    public static <T> boolean isInfinite(Stream<T> stream) {
         return stream.spliterator().estimateSize() == Long.MAX_VALUE;
     }
 
